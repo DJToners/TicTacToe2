@@ -1,0 +1,120 @@
+<html>
+<head>
+<title>tictacthree.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #629755; font-style: italic;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #cc7832;}
+.s3 { color: #6897bb;}
+.s4 { color: #6a8759;}
+.s5 { color: #808080;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+tictacthree.py</font>
+</center></td></tr></table>
+<pre><span class="s0">&quot;&quot;&quot; THIS GAME WORKS&quot;&quot;&quot;</span>
+<span class="s2">def </span><span class="s1">initialize_game():</span>
+    <span class="s2">global </span><span class="s1">winner</span>
+    <span class="s2">global </span><span class="s1">turn</span>
+    <span class="s2">global </span><span class="s1">numbers</span>
+    <span class="s2">global </span><span class="s1">row1</span>
+    <span class="s2">global </span><span class="s1">row2</span>
+    <span class="s2">global </span><span class="s1">row3</span>
+
+    <span class="s1">winner = </span><span class="s3">0</span>
+    <span class="s1">turn = </span><span class="s3">0</span>
+    <span class="s1">numbers = [</span><span class="s4">' '</span><span class="s2">,</span><span class="s4">'1'</span><span class="s2">, </span><span class="s4">'2'</span><span class="s2">, </span><span class="s4">'3'</span><span class="s1">]</span>
+    <span class="s1">row1 = [</span><span class="s4">'a'</span><span class="s2">, </span><span class="s4">'-'</span><span class="s2">, </span><span class="s4">'-'</span><span class="s2">, </span><span class="s4">'-'</span><span class="s1">]</span>
+    <span class="s1">row2 = [</span><span class="s4">'b'</span><span class="s2">, </span><span class="s4">'-'</span><span class="s2">, </span><span class="s4">'-'</span><span class="s2">, </span><span class="s4">'-'</span><span class="s1">]</span>
+    <span class="s1">row3 = [</span><span class="s4">'c'</span><span class="s2">, </span><span class="s4">'-'</span><span class="s2">, </span><span class="s4">'-'</span><span class="s2">, </span><span class="s4">'-'</span><span class="s1">]</span>
+
+    <span class="s1">board = [numbers</span><span class="s2">, </span><span class="s1">row1</span><span class="s2">, </span><span class="s1">row2</span><span class="s2">, </span><span class="s1">row3]</span>
+
+    <span class="s2">for </span><span class="s1">x </span><span class="s2">in </span><span class="s1">board:</span>
+        <span class="s1">print(x)</span>
+
+
+<span class="s2">def </span><span class="s1">which_player():</span>
+    <span class="s2">global </span><span class="s1">marker</span>
+    <span class="s2">if </span><span class="s1">turn % </span><span class="s3">2 </span><span class="s1">== </span><span class="s3">0</span><span class="s1">:</span>
+        <span class="s1">marker = </span><span class="s4">'x'</span>
+    <span class="s2">else</span><span class="s1">:</span>
+        <span class="s1">marker = </span><span class="s4">'o'</span>
+
+
+<span class="s2">def </span><span class="s1">get_choice():</span>
+    <span class="s2">global </span><span class="s1">coord</span>
+    <span class="s1">coord = input(</span><span class="s4">'Where would you like to place your marker? Enter as coordinates (ex. a1.)'</span><span class="s1">)</span>
+
+
+<span class="s2">def </span><span class="s1">place_marker():</span>
+    <span class="s1">row = coord[</span><span class="s3">0</span><span class="s1">]</span>
+    <span class="s1">column = coord[</span><span class="s3">1</span><span class="s1">]</span>
+    <span class="s2">if </span><span class="s1">row == </span><span class="s4">'a'</span><span class="s1">:</span>
+        <span class="s2">if </span><span class="s1">column == </span><span class="s4">'1'</span><span class="s1">:</span>
+            <span class="s1">row1[</span><span class="s3">1</span><span class="s1">] = marker</span>
+        <span class="s2">if </span><span class="s1">column == </span><span class="s4">'2'</span><span class="s1">:</span>
+            <span class="s1">row1[</span><span class="s3">2</span><span class="s1">] = marker</span>
+        <span class="s2">if </span><span class="s1">column == </span><span class="s4">'3'</span><span class="s1">:</span>
+            <span class="s1">row1[</span><span class="s3">3</span><span class="s1">] = marker</span>
+    <span class="s2">if </span><span class="s1">row == </span><span class="s4">'b'</span><span class="s1">:</span>
+        <span class="s2">if </span><span class="s1">column == </span><span class="s4">'1'</span><span class="s1">:</span>
+            <span class="s1">row2[</span><span class="s3">1</span><span class="s1">] = marker</span>
+        <span class="s2">if </span><span class="s1">column == </span><span class="s4">'2'</span><span class="s1">:</span>
+            <span class="s1">row2[</span><span class="s3">2</span><span class="s1">] = marker</span>
+        <span class="s2">if </span><span class="s1">column == </span><span class="s4">'3'</span><span class="s1">:</span>
+            <span class="s1">row2[</span><span class="s3">3</span><span class="s1">] = marker</span>
+    <span class="s2">if </span><span class="s1">row == </span><span class="s4">'c'</span><span class="s1">:</span>
+        <span class="s2">if </span><span class="s1">column == </span><span class="s4">'1'</span><span class="s1">:</span>
+            <span class="s1">row3[</span><span class="s3">1</span><span class="s1">] = marker</span>
+        <span class="s2">if </span><span class="s1">column == </span><span class="s4">'2'</span><span class="s1">:</span>
+            <span class="s1">row3[</span><span class="s3">2</span><span class="s1">] = marker</span>
+        <span class="s2">if </span><span class="s1">column == </span><span class="s4">'3'</span><span class="s1">:</span>
+            <span class="s1">row3[</span><span class="s3">3</span><span class="s1">] = marker</span>
+
+
+<span class="s2">def </span><span class="s1">new_board():</span>
+    <span class="s1">board = [numbers</span><span class="s2">, </span><span class="s1">row1</span><span class="s2">, </span><span class="s1">row2</span><span class="s2">, </span><span class="s1">row3]</span>
+
+    <span class="s2">for </span><span class="s1">x </span><span class="s2">in </span><span class="s1">board:</span>
+        <span class="s1">print(x)</span>
+
+
+<span class="s2">def </span><span class="s1">check_winner():</span>
+    <span class="s2">global </span><span class="s1">winner</span>
+    <span class="s2">if </span><span class="s1">(row1[</span><span class="s3">1</span><span class="s1">] == row1[</span><span class="s3">2</span><span class="s1">] == row1[</span><span class="s3">3</span><span class="s1">] != </span><span class="s4">'-'</span><span class="s1">) </span><span class="s2">or </span><span class="s1">(row2[</span><span class="s3">1</span><span class="s1">] == row2[</span><span class="s3">2</span><span class="s1">] == row2[</span><span class="s3">3</span><span class="s1">] != </span><span class="s4">'-'</span><span class="s1">) </span><span class="s2">or </span><span class="s1">(row3[</span><span class="s3">1</span><span class="s1">] == row3[</span><span class="s3">2</span><span class="s1">] == row3[</span><span class="s3">3</span><span class="s1">] != </span><span class="s4">'-'</span><span class="s1">) </span><span class="s2">or </span><span class="s1">(row1[</span><span class="s3">1</span><span class="s1">] == row2[</span><span class="s3">1</span><span class="s1">] == row3[</span><span class="s3">1</span><span class="s1">] != </span><span class="s4">'-'</span><span class="s1">) </span><span class="s2">or </span><span class="s1">(row1[</span><span class="s3">2</span><span class="s1">] == row2[</span><span class="s3">2</span><span class="s1">] == row3[</span><span class="s3">2</span><span class="s1">] != </span><span class="s4">'-'</span><span class="s1">) </span><span class="s2">or </span><span class="s1">(row1[</span><span class="s3">3</span><span class="s1">] == row2[</span><span class="s3">3</span><span class="s1">] == row3[</span><span class="s3">3</span><span class="s1">] != </span><span class="s4">'-'</span><span class="s1">) </span><span class="s2">or </span><span class="s1">(row1[</span><span class="s3">1</span><span class="s1">] == row2[</span><span class="s3">2</span><span class="s1">] == row3[</span><span class="s3">3</span><span class="s1">] != </span><span class="s4">'-'</span><span class="s1">) </span><span class="s2">or </span><span class="s1">(row1[</span><span class="s3">3</span><span class="s1">] == row2[</span><span class="s3">2</span><span class="s1">] == row3[</span><span class="s3">1</span><span class="s1">] != </span><span class="s4">'-'</span><span class="s1">):</span>
+        <span class="s1">print(</span><span class="s4">&quot;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!WINNER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&quot;</span><span class="s1">)</span>
+        <span class="s1">winner = </span><span class="s3">1</span>
+        <span class="s2">return </span><span class="s1">winner</span>
+
+
+<span class="s2">def </span><span class="s1">execute_turn():</span>
+    <span class="s2">global </span><span class="s1">turn</span>
+    <span class="s1">which_player()</span>
+    <span class="s1">get_choice()</span>
+    <span class="s1">place_marker()</span>
+    <span class="s1">turn = turn + </span><span class="s3">1</span>
+    <span class="s1">new_board()</span>
+    <span class="s1">check_winner()</span>
+    <span class="s4">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+
+
+<span class="s2">def </span><span class="s1">run_game():</span>
+    <span class="s5">#global winner</span>
+    <span class="s1">initialize_game()</span>
+
+    <span class="s1">x = </span><span class="s3">0</span>
+    <span class="s2">while </span><span class="s1">x == </span><span class="s3">0</span><span class="s1">:</span>
+        <span class="s1">execute_turn()</span>
+        <span class="s2">if </span><span class="s1">winner == </span><span class="s3">1</span><span class="s1">:</span>
+            <span class="s1">x = </span><span class="s3">1</span>
+
+
+<span class="s1">run_game()</span></pre>
+</body>
+</html>
